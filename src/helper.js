@@ -1,4 +1,4 @@
-const helper = {
+export const sizes = {
   up() {},
   down(size) {
     const sizes = {
@@ -11,4 +11,10 @@ const helper = {
     return `@media (max-width:${sizes[size]})`;
   },
 };
-export default helper;
+
+export function truncateString(str, num) {
+  if (str.length <= num) {
+    return str;
+  }
+  return str.slice(0, num) + "...";
+}

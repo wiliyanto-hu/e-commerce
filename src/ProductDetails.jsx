@@ -4,6 +4,7 @@ import axios from "axios";
 import Spinner from "./Spinner";
 import { withStyles } from "@material-ui/styles";
 import { Typography, Paper, Button } from "@material-ui/core";
+import { sizes } from "./helper";
 
 const styles = {
   ProductDetails: {
@@ -13,6 +14,11 @@ const styles = {
     margin: "0 auto",
     padding: "1rem",
     justifyContent: "space-around",
+
+    [sizes.down("xs")]: {
+      flexDirection: "column",
+      alignItems: "center",
+    },
   },
   imageContainer: {
     width: "40%",
@@ -20,6 +26,9 @@ const styles = {
     "& img": {
       height: "100%",
       width: "100%",
+    },
+    [sizes.down("xs")]: {
+      height: "200px",
     },
   },
   description: {
@@ -29,9 +38,13 @@ const styles = {
   text: {
     margin: "1rem",
   },
+  category: {
+    margin: "1rem",
+    textTransform: "capitalize",
+  },
 };
 
-const ProductDetails = ({ classes }) => {
+const ProductDetails = ({ classes, addItem }) => {
   const [product, setProduct] = React.useState("");
   const { id } = useParams();
 
@@ -60,10 +73,18 @@ const ProductDetails = ({ classes }) => {
             <Typography variant="h5" className={classes.text}>
               ${product.price}
             </Typography>
+            <Typography variant="body1" className={classes.category}>
+              {product.category}
+            </Typography>
             <Typography variant="body1" className={classes.text}>
               {product.description}
             </Typography>
-            <Button fullWidth color="secondary" variant="contained">
+            <Button
+              fullWidth
+              color="secondary"
+              variant="contained"
+              onClick={() => addItem(product)}
+            >
               Add to cart
             </Button>
           </div>

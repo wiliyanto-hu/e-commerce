@@ -5,23 +5,34 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { truncateString, sizes } from "./helper";
 import { withStyles } from "@material-ui/styles";
 import { useParams, Link } from "react-router-dom";
 
 const styles = {
+  "@global": {
+    ".MuiButton-containedSecondary": {
+      backgroundColor: "black",
+      color: "white",
+    },
+  },
   Card: {
     padding: "1rem",
   },
   imgContainer: {
     width: "100%",
-    height: "350px",
+    height: "250px",
+
+    [sizes.down("xs")]: {
+      height: "150px",
+    },
   },
   image: {
     width: "100%",
     height: "100%",
   },
 };
-const Product = ({ product, classes }) => {
+const Product = ({ product, classes, addItem }) => {
   const { id } = useParams();
 
   return (
@@ -38,7 +49,7 @@ const Product = ({ product, classes }) => {
             </div>
             <CardContent>
               <Typography gutterBottom variant="body1" component="h2">
-                {product.title}
+                {truncateString(product.title, 50)}
               </Typography>
               <Typography variant="h6" component="p">
                 {`$${product.price}`}
@@ -47,7 +58,12 @@ const Product = ({ product, classes }) => {
           </CardActionArea>
         </Link>
         <CardActions>
-          <Button fullWidth color="secondary" variant="contained">
+          <Button
+            fullWidth
+            color="secondary"
+            variant="contained"
+            onClick={() => addItem(product)}
+          >
             Add to cart
           </Button>
         </CardActions>

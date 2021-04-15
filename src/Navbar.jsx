@@ -24,8 +24,12 @@ const styles = {
   AppBar: {
     backgroundColor: "black",
   },
-  CartBtn: {
+  Cart: {
     marginLeft: "auto",
+    color: "white",
+    display: "block",
+    textTransform: "uppercase",
+    fontWeight: "500",
   },
 };
 
@@ -48,10 +52,9 @@ const Navbar = ({ classes, setState, toggleDrawer }) => {
               E-Store
             </Typography>
           </Link>
-
-          <Button color="inherit" className={classes.CartBtn}>
+          <Link to="/cart" exact className={classes.Cart}>
             Cart
-          </Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
