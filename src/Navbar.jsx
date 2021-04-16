@@ -41,6 +41,7 @@ const styles = {
     padding: "1px 5.5px",
     color: "white",
     borderRadius: "50%",
+    marginLeft: "0.3rem",
   },
 };
 
@@ -64,8 +65,9 @@ const Navbar = ({ classes, toggleDrawer, cart }) => {
             </Typography>
           </Link>
           <Link to="/cart" exact className={classes.Cart}>
-            Cart <span className={classes.cartItems}>{cart.length}</span>
+            <i class="fas fa-shopping-cart"></i>
           </Link>
+          <span className={classes.cartItems}>{cart.length}</span>
         </Toolbar>
       </AppBar>
     </div>

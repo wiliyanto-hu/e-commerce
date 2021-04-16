@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 import Product from "./Product";
 import Spinner from "./Spinner";
 
-const ProductList = ({ addItem, category, setMessage, setOpen }) => {
+const ProductList = ({ addItem, category, handleMessage, setOpen }) => {
   const [products, setProducts] = React.useState([]);
   React.useEffect(() => {
     async function fetchData() {
@@ -13,8 +13,9 @@ const ProductList = ({ addItem, category, setMessage, setOpen }) => {
         const { data } = response;
         setProducts(data);
       } catch (e) {
-        setMessage(
-          "Something went wrong, please check your connection or try again later"
+        handleMessage(
+          "Something went wrong, please check your connection or try again later",
+          "error"
         );
         setOpen(true);
       }

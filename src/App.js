@@ -21,7 +21,10 @@ function App() {
   const [cart, setCart] = React.useState([]);
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
-  const [message, setMessage] = React.useState("Success");
+  const [alert, setAlert] = React.useState({
+    message: "Success",
+    severity: "success",
+  });
   const [category, setCategory] = React.useState("all products");
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -36,6 +39,8 @@ function App() {
   };
 
   const handleClose = () => setOpen(false);
+  const handleMessage = (message, severity = "success") =>
+    setAlert({ message, severity });
 
   const addItem = (item) => {
     setOpen(false);
@@ -52,7 +57,7 @@ function App() {
       }
       setCart(newCart);
       setLoading(false);
-      setMessage("Item successfully added to cart");
+      handleMessage("Item successfully added to cart");
       setOpen(true);
     }, 1000);
   };
@@ -63,7 +68,7 @@ function App() {
       const newCart = cart.filter((i) => i.id !== id);
       setCart(newCart);
       setLoading(false);
-      setMessage("Item deleted from cart");
+      handleMessage("Item deleted from cart");
       setOpen(true);
     }, 1000);
   };
@@ -96,15 +101,15 @@ function App() {
               <ProductList
                 addItem={addItem}
                 category={category}
-                setMessage={setMessage}
+                handleMessage={handleMessage}
                 setOpen={setOpen}
               />
             )}
           />
         </Switch>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-          <Alert onClose={handleClose} severity="success">
-            {message}
+          <Alert onClose={handleClose} severity={alert.severity}>
+            {alert.message}
           </Alert>
         </Snackbar>
         <Backdrop open={loading} style={{ zIndex: 2 }}>
