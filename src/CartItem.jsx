@@ -44,7 +44,7 @@ const CartItem = ({ classes, item, deleteItem }) => {
     <>
       <div className={classes.CartItem}>
         <div className={classes.imgText}>
-          <img src={`${item.image}`} />
+          <img src={`${item.image}`} alt={item.title} />
           <Typography variant="subtitle" className={classes.text}>
             {item.title} x{item.quantity}
           </Typography>

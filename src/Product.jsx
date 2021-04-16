@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { truncateString, sizes } from "./helper";
 import { withStyles } from "@material-ui/styles";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const styles = {
   "@global": {
@@ -16,7 +16,9 @@ const styles = {
       color: "white",
 
       [sizes.down("xs")]: {
-        hover: "black",
+        "&:hover": {
+          backgroundColor: "black",
+        },
       },
     },
   },
@@ -37,8 +39,6 @@ const styles = {
   },
 };
 const Product = ({ product, classes, addItem }) => {
-  const { id } = useParams();
-
   return (
     <Grid item xs={6} sm={6} md={4} lg={3}>
       <Card className={classes.Card}>

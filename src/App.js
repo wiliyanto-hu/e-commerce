@@ -22,6 +22,7 @@ function App() {
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [message, setMessage] = React.useState("Success");
+  const [category, setCategory] = React.useState("all products");
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -70,7 +71,12 @@ function App() {
   return (
     <div className="App">
       <Navbar setState={setState} toggleDrawer={toggleDrawer} />
-      <Drawer state={state} setState={setState} toggleDrawer={toggleDrawer} />
+      <Drawer
+        state={state}
+        setState={setState}
+        toggleDrawer={toggleDrawer}
+        setCategory={setCategory}
+      />
       <Container maxWidth="lg" style={{ margin: "1.5rem auto" }}>
         <Switch>
           <Route
@@ -86,7 +92,7 @@ function App() {
           <Route
             path="/"
             exact
-            render={() => <ProductList addItem={addItem} />}
+            render={() => <ProductList addItem={addItem} category={category} />}
           />
         </Switch>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

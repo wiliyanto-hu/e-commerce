@@ -5,10 +5,7 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 
 const useStyles = makeStyles({
   list: {
@@ -19,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TemporaryDrawer({ state, toggleDrawer }) {
+export default function TemporaryDrawer({ state, toggleDrawer, setCategory }) {
   const classes = useStyles();
 
   const list = (anchor) => (
@@ -32,12 +29,13 @@ export default function TemporaryDrawer({ state, toggleDrawer }) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["All Products", "Men Clothings", "Womens", "Electronics"].map(
+        {["All Products", "Men Clothing", "Women Clothing", "Electronics"].map(
           (text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
+            <ListItem
+              button
+              key={text}
+              onClick={() => setCategory(text.toLowerCase())}
+            >
               <ListItemText primary={text} />
             </ListItem>
           )
