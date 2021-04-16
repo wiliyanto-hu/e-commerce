@@ -41,12 +41,3 @@ const ProductList = ({ addItem, category, setMessage, setOpen }) => {
   );
 };
 export default ProductList;
-
-// {products.length ? (
-//   if(category)
-//   products.map((p) => (
-//     <Product product={p} key={p.id} addItem={addItem} />
-//   ))
-// ) : (
-//   <Spinner />
-// )}

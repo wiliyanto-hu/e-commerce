@@ -6,6 +6,7 @@ import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import { useLocation, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   list: {
@@ -16,9 +17,10 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TemporaryDrawer({ state, toggleDrawer, setCategory }) {
+const Sidebar = ({ state, toggleDrawer, setCategory }) => {
   const classes = useStyles();
-
+  const location = useLocation();
+  const history = useHistory();
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
@@ -34,7 +36,12 @@ export default function TemporaryDrawer({ state, toggleDrawer, setCategory }) {
             <ListItem
               button
               key={text}
-              onClick={() => setCategory(text.toLowerCase())}
+              onClick={() => {
+                setCategory(text.toLowerCase());
+                if (location.pathname !== "/") {
+                  history.push("/");
+                }
+              }}
             >
               <ListItemText primary={text} />
             </ListItem>
@@ -59,4 +66,5 @@ export default function TemporaryDrawer({ state, toggleDrawer, setCategory }) {
       </React.Fragment>
     </div>
   );
-}
+};
+export default Sidebar;
