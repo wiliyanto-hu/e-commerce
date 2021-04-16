@@ -1,5 +1,6 @@
 import { withStyles } from "@material-ui/styles";
 import { Typography, Divider } from "@material-ui/core";
+import { sizes } from "./helper";
 
 const styles = {
   CartItem: {
@@ -29,6 +30,10 @@ const styles = {
     bottom: "10px",
     right: "5px",
     "&:hover": {
+      color: "red",
+      cursor: "pointer",
+    },
+    [sizes.down("xs")]: {
       color: "red",
     },
   },

@@ -14,6 +14,10 @@ const styles = {
     ".MuiButton-containedSecondary": {
       backgroundColor: "black",
       color: "white",
+
+      [sizes.down("xs")]: {
+        hover: "black",
+      },
     },
   },
   Card: {

@@ -15,7 +15,7 @@ const styles = {
     padding: "1rem",
     justifyContent: "space-around",
 
-    [sizes.down("xs")]: {
+    [sizes.down("sm")]: {
       flexDirection: "column",
       alignItems: "center",
     },
@@ -27,7 +27,7 @@ const styles = {
       height: "100%",
       width: "100%",
     },
-    [sizes.down("xs")]: {
+    [sizes.down("sm")]: {
       height: "200px",
     },
   },

@@ -13,7 +13,7 @@ const ProductList = ({ addItem }) => {
       setProducts(data);
     }
     fetchData();
-  }, [products]);
+  }, []);
 
   return (
     <Grid container spacing={6}>
