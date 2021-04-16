@@ -4,13 +4,20 @@ import { Grid } from "@material-ui/core";
 import Product from "./Product";
 import Spinner from "./Spinner";
 
-const ProductList = ({ addItem, category }) => {
+const ProductList = ({ addItem, category, setMessage, setOpen }) => {
   const [products, setProducts] = React.useState([]);
   React.useEffect(() => {
     async function fetchData() {
-      const response = await axios.get("https://fakestoreapi.com/products");
-      const { data } = response;
-      setProducts(data);
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+        const { data } = response;
+        setProducts(data);
+      } catch (e) {
+        setMessage(
+          "Something went wrong, please check your connection or try again later"
+        );
+        setOpen(true);
+      }
     }
     fetchData();
   }, []);

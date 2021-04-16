@@ -19,6 +19,9 @@ const styles = {
     color: "white",
     textDecoration: "none",
     display: "block",
+    "&:hover": {
+      opacity: 0.7,
+    },
   },
   AppBar: {
     backgroundColor: "black",
@@ -29,10 +32,19 @@ const styles = {
     display: "block",
     textTransform: "uppercase",
     fontWeight: "500",
+    "&:hover": {
+      opacity: 0.7,
+    },
+  },
+  cartItems: {
+    backgroundColor: "rgb(235,119,52)",
+    padding: "1px 5.5px",
+    color: "white",
+    borderRadius: "50%",
   },
 };
 
-const Navbar = ({ classes, setState, toggleDrawer }) => {
+const Navbar = ({ classes, toggleDrawer, cart }) => {
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.AppBar}>
@@ -52,7 +64,7 @@ const Navbar = ({ classes, setState, toggleDrawer }) => {
             </Typography>
           </Link>
           <Link to="/cart" exact className={classes.Cart}>
-            Cart
+            Cart <span className={classes.cartItems}>{cart.length}</span>
           </Link>
         </Toolbar>
       </AppBar>

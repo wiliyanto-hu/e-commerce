@@ -70,7 +70,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar setState={setState} toggleDrawer={toggleDrawer} />
+      <Navbar setState={setState} toggleDrawer={toggleDrawer} cart={cart} />
       <Drawer
         state={state}
         setState={setState}
@@ -92,7 +92,14 @@ function App() {
           <Route
             path="/"
             exact
-            render={() => <ProductList addItem={addItem} category={category} />}
+            render={() => (
+              <ProductList
+                addItem={addItem}
+                category={category}
+                setMessage={setMessage}
+                setOpen={setOpen}
+              />
+            )}
           />
         </Switch>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
