@@ -32,7 +32,7 @@ const Sidebar = ({ state, toggleDrawer, setCategory }) => {
     >
       <List>
         {["All Products", "Men Clothing", "Women Clothing", "Electronics"].map(
-          (text, index) => (
+          (text) => (
             <ListItem
               button
               key={text}

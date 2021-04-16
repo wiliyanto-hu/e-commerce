@@ -1,18 +1,7 @@
 import { Paper, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import CartItem from "./CartItem";
-
-const styles = {
-  Cart: {
-    width: "80%",
-    margin: "0 auto",
-  },
-  totalPrice: {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "1rem",
-  },
-};
+import styles from "./styles/CartStyle";
 
 const Cart = ({ cart, classes, deleteItem }) => {
   return (
@@ -28,7 +17,9 @@ const Cart = ({ cart, classes, deleteItem }) => {
             <Typography>Total Price:</Typography>
             <Typography>
               $
-              {cart.reduce((a, { price, quantity }) => a + price * quantity, 0)}
+              {cart
+                .reduce((a, { price, quantity }) => a + price * quantity, 0)
+                .toFixed(2)}
             </Typography>
           </div>
         </Paper>

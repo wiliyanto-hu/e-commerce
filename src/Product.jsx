@@ -5,39 +5,11 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { truncateString, sizes } from "./helper";
+import { truncateString } from "./helper";
 import { withStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
+import styles from "./styles/ProductStyle";
 
-const styles = {
-  "@global": {
-    ".MuiButton-containedSecondary": {
-      backgroundColor: "black",
-      color: "white",
-
-      [sizes.down("xs")]: {
-        "&:hover": {
-          backgroundColor: "black",
-        },
-      },
-    },
-  },
-  Card: {
-    padding: "1rem",
-  },
-  imgContainer: {
-    width: "100%",
-    height: "250px",
-
-    [sizes.down("xs")]: {
-      height: "150px",
-    },
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-  },
-};
 const Product = ({ product, classes, addItem }) => {
   return (
     <Grid item xs={6} sm={6} md={4} lg={3}>
