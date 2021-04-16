@@ -1,6 +1,6 @@
 import { sizes } from "../helper";
 
-export default {
+const styles = {
   "@global": {
     ".MuiButton-containedSecondary": {
       backgroundColor: "black",
@@ -29,3 +29,4 @@ export default {
     height: "100%",
   },
 };
+export default styles;

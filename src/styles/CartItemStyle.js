@@ -1,6 +1,6 @@
 import { sizes } from "../helper";
 
-export default {
+const styles = {
   CartItem: {
     padding: "1rem",
     display: "flex",
@@ -36,3 +36,4 @@ export default {
     },
   },
 };
+export default styles;

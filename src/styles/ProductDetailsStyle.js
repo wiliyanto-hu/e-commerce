@@ -1,5 +1,5 @@
 import { sizes } from "../helper";
-export default {
+const styles = {
   ProductDetails: {
     width: "80%",
     display: "flex",
@@ -36,3 +36,4 @@ export default {
     textTransform: "capitalize",
   },
 };
+export default styles;

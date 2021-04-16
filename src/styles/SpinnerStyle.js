@@ -1,4 +1,4 @@
-export default {
+const styles = {
   Container: {
     margin: "1rem auto",
     width: "fit-content",
@@ -14,3 +14,4 @@ export default {
     margin: "0 auto",
   },
 };
+export default styles;

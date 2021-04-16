@@ -28,7 +28,7 @@ const Navbar = ({ classes, toggleDrawer, cart }) => {
             </Typography>
           </Link>
           <Link to="/cart" exact className={classes.Cart}>
-            <i class="fas fa-shopping-cart"></i>
+            <i className="fas fa-shopping-cart"></i>
           </Link>
           <span className={classes.cartItems}>{cart.length}</span>
         </Toolbar>

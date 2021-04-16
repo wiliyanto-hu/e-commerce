@@ -1,4 +1,4 @@
-export default {
+const styles = {
   Cart: {
     width: "80%",
     margin: "0 auto",
@@ -9,3 +9,4 @@ export default {
     padding: "1rem",
   },
 };
+export default styles;

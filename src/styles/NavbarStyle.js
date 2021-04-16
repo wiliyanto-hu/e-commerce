@@ -1,4 +1,4 @@
-export default {
+const styles = {
   root: {
     flexGrow: 1,
   },
@@ -35,3 +35,4 @@ export default {
     marginLeft: "0.3rem",
   },
 };
+export default styles;
